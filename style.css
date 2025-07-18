@@ -3,12 +3,6 @@ body {
   text-align: center;
   background: #ffeef2;
   padding: 2rem;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
 }
 
 h1 {
@@ -17,107 +11,60 @@ h1 {
   font-size: 2.5rem;
 }
 
-/* Contenedor centrado y con ancho máximo */
 .grid {
   display: grid;
-  justify-content: center;      /* centra el grid horizontalmente */
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto 3rem auto;
+  justify-content: center;       /* ✅ centra el grid horizontalmente */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 900px;              /* ✅ evita que se estire a lo ancho */
+  margin: 0 auto;                /* ✅ centra en pantalla */
+  gap: 1.5rem;
+  position: relative;
   z-index: 1;
 }
 
-/* Diseño romántico tipo caja regalo rosa */
 .box {
-  position: relative;
-  background: linear-gradient(145deg, #f8c7d0, #f4a6b8);
-  border-radius: 20px;
-  padding: 1.5rem 1rem 2rem 1rem;
-  box-shadow: 0 8px 15px rgba(214, 51, 108, 0.3);
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  padding: 1rem;
   border: 2px solid #d6336c;
-  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ffd6e0;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
-/* Efecto hover: un poco más grande y sombra más fuerte */
 .box:hover {
   transform: scale(1.1);
-  box-shadow: 0 12px 25px rgba(214, 51, 108, 0.6);
-  background: linear-gradient(145deg, #f7a6bf, #f0607a);
+  background-color: #ff8fab;
 }
 
-/* Cinta decorativa horizontal */
-.box::before {
-  content: "";
-  position: absolute;
-  top: 40%;
-  left: 0;
-  width: 100%;
-  height: 12px;
-  background: #d6336c;
-  border-radius: 6px;
-  box-shadow: 0 0 10px #ff8fab;
-  z-index: 2;
-}
-
-/* Cinta decorativa vertical */
-.box::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 100%;
-  background: #d6336c;
-  border-radius: 6px;
-  box-shadow: 0 0 10px #ff8fab;
-  z-index: 2;
-}
-
-/* Título con icono y estilo */
 .title {
-  position: relative;
-  z-index: 3;
-  color: #7a0c26;
-  font-weight: 700;
-  font-size: 1.4rem;
+  display: block;
+  font-weight: bold;
   margin-bottom: 1rem;
-  user-select: none;
+  color: #d6336c;
+  font-size: 1.3rem;
 }
 
-/* Botón */
 button {
-  position: relative;
-  z-index: 3;
   background-color: #d6336c;
   color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
-  box-shadow: 0 3px 6px rgba(214, 51, 108, 0.5);
-  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #a0204c;
 }
 
-/* Canvas de corazones (fondo animado) */
 #corazones {
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
   z-index: 0;
-  width: 100vw;
-  height: 100vh;
 }
 
 /* Animación al desbloquear */
@@ -134,6 +81,4 @@ button:hover {
 
 .desbloqueada {
   animation: abrirCaja 0.6s ease;
-  color: #7a0c26;
-  font-weight: 600;
 }
