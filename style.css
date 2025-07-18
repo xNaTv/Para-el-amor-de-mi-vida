@@ -13,7 +13,10 @@ h1 {
 
 .grid {
   display: grid;
+  justify-content: center;       /* ✅ centra el grid horizontalmente */
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: 900px;              /* ✅ evita que se estire a lo ancho */
+  margin: 0 auto;                /* ✅ centra en pantalla */
   gap: 1.5rem;
   position: relative;
   z-index: 1;
@@ -79,3 +82,4 @@ button:hover {
 .desbloqueada {
   animation: abrirCaja 0.6s ease;
 }
+
