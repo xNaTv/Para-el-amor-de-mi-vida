@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Dancing Script', cursive;
   text-align: center;
   background: #ffeef2;
   padding: 2rem;
@@ -8,12 +8,15 @@ body {
 h1 {
   color: #d6336c;
   margin-bottom: 2rem;
+  font-size: 2.5rem;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .box {
@@ -22,11 +25,12 @@ h1 {
   border: 2px solid #d6336c;
   border-radius: 10px;
   box-shadow: 0 0 10px #ffd6e0;
-  transition: transform 0.2s;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
 .box:hover {
-  transform: scale(1.03);
+  transform: scale(1.1);
+  background-color: #ff8fab;
 }
 
 .title {
@@ -34,14 +38,7 @@ h1 {
   font-weight: bold;
   margin-bottom: 1rem;
   color: #d6336c;
-}
-.box {
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-.box:hover {
-  transform: scale(1.1);
-  background-color: #ff8fab;
+  font-size: 1.3rem;
 }
 
 button {
@@ -52,8 +49,33 @@ button {
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 1rem;
 }
 
 button:hover {
   background-color: #a0204c;
+}
+
+#corazones {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animación al desbloquear */
+@keyframes abrirCaja {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.desbloqueada {
+  animation: abrirCaja 0.6s ease;
 }
