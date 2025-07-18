@@ -2,34 +2,91 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Para el amor de mi vida</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Regalo para mi novia</title>
+
+  <!-- Fuente cursiva -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <div class="heart-background"></div>
-  <h1>Para el amor de mi vida ❤️</h1>
-  <div class="container">
-    <div class="box" data-code="caja1" data-content="Te regalo un abrazo enorme 🥰">
-      <button>🎁</button>
+  <h1>🎁 De tu novio tóxico 😢 💖</h1>
+
+  <div class="grid">
+    <div class="box" data-code="te amo" data-content="Te amo mucho, amor. Esta es tu primera sorpresa. 💌">
+      <span class="title">📦 Caja 1</span>
+      <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="caja2" data-content="Un beso lleno de amor 😘">
-      <button>🎁</button>
+    <div class="box" data-code="gracias por aparecer en mi vida" data-content="Tu presencia cambió mi vida. Gracias por estar. 🌟">
+      <span class="title">📦 Caja 2</span>
+      <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="caja3" data-content="Una tarde juntos viendo pelis 🍿">
-      <button>🎁</button>
+    <div class="box" data-code="eres lo mas lindo que tengo" data-content="Sos lo mejor que me pasó. ❤️">
+      <span class="title">📦 Caja 3</span>
+      <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="caja4" data-content="Una cena romántica contigo 💖">
-      <button>🎁</button>
+    <div class="box" data-code="siempre seras tu y nadie mas" data-content="Siempre serás mi elección. 💘">
+      <span class="title">📦 Caja 4</span>
+      <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="caja5" data-content="Un día de mimos y caricias 🥰">
-      <button>🎁</button>
+    <div class="box" data-code="se que soy celoso pero este celoso te ama" data-content="Este celoso te ama demasiado 😳💕">
+      <span class="title">📦 Caja 5</span>
+      <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="caja6" data-content="Un paseo bajo las estrellas 🌟">
-      <button>🎁</button>
+    <div class="box" data-code="espero que te guste mi refalo" data-content="Esto lo hice con mucho amor para vos. 🎨">
+      <span class="title">📦 Caja 6</span>
+      <button>Desbloquear</button>
     </div>
   </div>
-  <script src="script.js"></script>
+
+  <!-- Canvas de corazones -->
+  <canvas id="corazones"></canvas>
+
+  <!-- JS -->
+  <script src="main.js"></script>
+
+  <!-- Corazones animados -->
+  <script>
+    const canvas = document.getElementById("corazones");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let corazones = [];
+
+    function crearCorazon() {
+      corazones.push({
+        x: Math.random() * canvas.width,
+        y: 0,
+        size: Math.random() * 20 + 10,
+        speed: Math.random() * 2 + 1
+      });
+    }
+
+    function dibujarCorazones() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ff4d6d";
+      corazones.forEach((c, i) => {
+        ctx.font = `${c.size}px serif`;
+        ctx.fillText("❤", c.x, c.y);
+        c.y += c.speed;
+        if (c.y > canvas.height) corazones.splice(i, 1);
+      });
+    }
+
+    function animar() {
+      dibujarCorazones();
+      requestAnimationFrame(animar);
+    }
+
+    setInterval(crearCorazon, 300);
+    animar();
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
 </body>
 </html>
