@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Para el amor de mi vida</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para el amor de mi vida</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="heart-container"></div>
+    <div class="corazones"></div>
 
-  <h1>Para el amor de mi vida 💖</h1>
-
-  <div class="container">
-    <div class="box" data-code="caja1" data-content="Te amo más de lo que podés imaginar 💕">
-      <button>🎁 Abrir Caja 1</button>
+    <h1>Para el amor de mi vida</h1>
+    <div class="contenedor">
+        <div class="caja" onclick="abrirCaja(this, 'regalo1')">🎁</div>
+        <div class="caja" onclick="abrirCaja(this, 'regalo2')">🎁</div>
+        <div class="caja" onclick="abrirCaja(this, 'regalo3')">🎁</div>
+        <div class="caja" onclick="abrirCaja(this, 'regalo4')">🎁</div>
+        <div class="caja" onclick="abrirCaja(this, 'regalo5')">🎁</div>
+        <div class="caja" onclick="abrirCaja(this, 'regalo6')">🎁</div>
     </div>
-    <div class="box" data-code="caja2" data-content="Gracias por existir, sos mi persona favorita 🥰">
-      <button>🎁 Abrir Caja 2</button>
-    </div>
-    <div class="box" data-code="caja3" data-content="Cada día a
 
+    <div id="regalo1" class="regalo oculto">Regalo 1: ¡Te amo mucho! ❤️</div>
+    <div id="regalo2" class="regalo oculto">Regalo 2: Eres lo mejor que me pasó ✨</div>
+    <div id="regalo3" class="regalo oculto">Regalo 3: Tu sonrisa ilumina mi día 😊</div>
+    <div id="regalo4" class="regalo oculto">Regalo 4: Siempre estoy pensando en ti 💭</div>
+    <div id="regalo5" class="regalo oculto">Regalo 5: Quiero estar a tu lado siempre 💑</div>
+    <div id="regalo6" class="regalo oculto">Regalo 6: Esto es solo el comienzo 💌</div>
 
+    <script src="script.js"></script>
+</body>
+</html>
