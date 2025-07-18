@@ -1,10 +1,22 @@
-function abrirCaja(numero) {
-  const codigo = prompt(`Ingresa el código para abrir la caja ${numero}:`);
-  const regalo = document.getElementById("regalo");
+document.querySelectorAll(".box button").forEach(button => {
+  button.addEventListener("click", () => {
+    const box = button.parentElement;
+    const correctCode = box.getAttribute("data-code").toLowerCase();
+    const content = box.getAttribute("data-content");
 
-  if (codigo === `caja${numero}`) {
-    regalo.innerHTML = `🎉 ¡Has abierto la caja ${numero}! Aquí tienes tu regalo especial 💖`;
-  } else {
-    regalo.innerHTML = `❌ Código incorrecto para la caja ${numero}. Intenta de nuevo.`;
-  }
-}
+    const userCode = prompt("Ingresá el código secreto:").toLowerCase();
+    
+    if (userCode === correctCode) {
+      let audio = new Audio('https://www.myinstants.com/media/sounds/success-fanfare-trumpets.mp3');
+      audio.play();
+
+      box.innerHTML = `
+        <div class="open-animation">
+          <span class="title">✅ Desbloqueada</span>
+          <p>${content}</p>
+        </div>`;
+    } else {
+      alert("Código incorrecto 😢");
+    }
+  });
+});
