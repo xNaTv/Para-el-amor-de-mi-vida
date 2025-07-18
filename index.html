@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Regalo para mi novia</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #ffeef2;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #d6336c;
+      margin-bottom: 2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .box {
+      background: white;
+      padding: 1rem;
+      border: 2px solid #d6336c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ffd6e0;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .box:hover {
+      transform: scale(1.1);
+      background-color: #ff8fab;
+    }
+
+    .title {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #d6336c;
+    }
+
+    button {
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #a0204c;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎁 De tu novio toxico 😢 💖</h1>
+  <div class="grid">
+    <div class="box" data-code="te amo" data-content="Te amo mucho, amor. Esta es tu primera sorpresa. 💌">
+      <span class="title">Caja 1</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="gracias por aparecer en mi vida" data-content="Tu presencia cambió mi vida. Gracias por estar. 🌟">
+      <span class="title">Caja 2</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="eres lo mas lindo que tengo" data-content="Sos lo mejor que me pasó. ❤️">
+      <span class="title">Caja 3</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="siempre seras tu y nadie mas" data-content="Siempre serás mi elección. 💘">
+      <span class="title">Caja 4</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="se que soy celoso pero este celoso te ama" data-content="Este celoso te ama demasiado 😳💕">
+      <span class="title">Caja 5</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="espero que te guste mi refalo" data-content="Esto lo hice con mucho amor para vos. 🎨">
+      <span class="title">Caja 6</span>
+      <button>Desbloquear</button>
+    </div>
+  </div>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    document.querySelectorAll(".box button").forEach(button => {
+      button.addEventListener("click", () => {
+        const box = button.parentElement;
+        const correctCode = box.getAttribute("data-code").toLowerCase();
+        const content = box.getAttribute("data-content");
+
+        const userCode = prompt("Ingresá el código secreto:").toLowerCase();
+
+        if (userCode === correctCode) {
+          box.innerHTML = `<span class="title">✅ Desbloqueada</span><p>${content}</p>`;
+        } else {
+          alert("Código incorrecto 😢");
+        }
+      });
+    });
+
+    // Abrir caja si vienen parámetros caja y codigo en URL
+    const cajaParam = getQueryParam('caja');
+    const codigoParam = getQueryParam('codigo');
+
+    if (cajaParam && codigoParam) {
+      const box = document.querySelector(`.box:nth-child(${cajaParam})`);
+      if (box) {
+        const correctCode = box.getAttribute("data-code").toLowerCase();
+        if (codigoParam.toLowerCase() === correctCode) {
+          const content = box.getAttribute("data-content");
+          box.innerHTML = `<span class="title">✅ Desbloqueada</span><p>${content}</p>`;
+        } else {
+          alert("Código incorrecto 😢");
+        }
+      }
+    }
+  </script>
+</body>
+</html>
