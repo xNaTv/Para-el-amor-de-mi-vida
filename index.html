@@ -2,196 +2,37 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Regalo para mi novia</title>
-
-  <!-- Fuente cursiva -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
-
-  <style>
-    body {
-      font-family: 'Dancing Script', cursive;
-      background: #ffeef2;
-      padding: 2rem;
-      margin: 0;
-      overflow-x: hidden;
-      text-align: center;
-      min-height: 100vh;
-      position: relative;
-    }
-
-    h1 {
-      color: #d6336c;
-      margin-bottom: 2rem;
-      font-size: 2.5rem;
-      position: relative;
-      z-index: 10;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 250px);
-      grid-auto-rows: auto;
-      gap: 1.5rem;
-      justify-content: center;
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 10;
-    }
-
-    .box {
-      background: white;
-      border: 2px solid #d6336c;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ffd6e0;
-      padding: 1rem;
-      width: 250px;
-      transition: transform 0.3s, background-color 0.3s;
-      box-sizing: border-box;
-    }
-
-    .box:hover {
-      transform: scale(1.1);
-      background-color: #ff8fab;
-    }
-
-    .title {
-      font-weight: bold;
-      margin-bottom: 1rem;
-      color: #d6336c;
-      font-size: 1.3rem;
-    }
-
-    .box-link {
-      color: #d6336c;
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.3s, text-shadow 0.3s;
-    }
-
-    .box-link:hover {
-      color: #ff6699;
-      text-shadow: 0 0 5px #ff6699;
-    }
-
-    button {
-      background-color: #d6336c;
-      border: none;
-      border-radius: 6px;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #a0204c;
-    }
-
-    #corazones {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 1;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mis Cajas Secretas</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🎁 De tu novio tóxico 😢 💖</h1>
-
-  <div class="grid">
-    <div class="box" data-code="te amo" data-content="Te amo mucho, amor. Esta es tu primera sorpresa. 💌">
-      <span class="title"><a href="https://xnatv.github.io/Caja-1/" class="box-link" target="_blank" rel="noopener noreferrer">💝 Caja 1</a></span>
+  <div class="container">
+    <div class="box" data-code="1234" data-content="Te amo mucho ❤️">
+      <a href="https://xnatv.github.io/Caja-1/" class="title-link">Caja 1</a>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="gracias por aparecer en mi vida" data-content="Tu presencia cambió mi vida. Gracias por estar. 🌟">
-      <span class="title"><a href="https://xnatv.github.io/caja-2/" class="box-link" target="_blank" rel="noopener noreferrer">💝 Caja 2</a></span>
+    <div class="box" data-code="2345" data-content="Sos lo mejor que me pasó 💖">
+      <a href="https://xnatv.github.io/caja-2/" class="title-link">Caja 2</a>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="eres lo mas lindo que tengo" data-content="Sos lo mejor que me pasó. ❤️">
-      <span class="title"><a href="https://example.com/caja3" class="box-link" target="_blank" rel="noopener noreferrer">💝 Caja 3</a></span>
+    <div class="box" data-code="3456" data-content="Gracias por existir 🌟">
+      <span class="title">Caja 3</span>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="siempre seras tu y nadie mas" data-content="Siempre serás mi elección. 💘">
-      <span class="title"><a href="https://example.com/caja4" class="box-link" target="_blank" rel="noopener noreferrer">💝 Caja 4</a></span>
+    <div class="box" data-code="4567" data-content="Tu sonrisa ilumina todo ✨">
+      <span class="title">Caja 4</span>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="se que soy celoso pero este celoso te ama" data-content="Este celoso te ama demasiado 😳💕">
-      <span class="title"><a href="https://example.com/caja5" class="box-link" target="_blank" rel="noopener noreferrer">💝 Caja 5</a></span>
+    <div class="box" data-code="5678" data-content="Nunca ame tanto a alguien como a ti 💘">
+      <span class="title">Caja 5</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="6789" data-content="Sos mi persona favorita 💞">
+      <span class="title">Caja 6</span>
       <button>Desbloquear</button>
     </div>
   </div>
-
-  <canvas id="corazones"></canvas>
-
-  <script>
-    // Código JS para desbloqueo
-    document.querySelectorAll(".box button").forEach(button => {
-      button.addEventListener("click", () => {
-        const box = button.parentElement;
-        const correctCode = box.getAttribute("data-code").toLowerCase();
-        const content = box.getAttribute("data-content");
-
-        const userCode = prompt("Ingresá el código secreto:").toLowerCase();
-
-        if (userCode === correctCode) {
-          let audio = new Audio('https://www.myinstants.com/media/sounds/success-fanfare-trumpets.mp3');
-          audio.play();
-
-          box.innerHTML = `<div class="desbloqueada"><span class="title">🎁 Desbloqueada</span><p>${content}</p></div>`;
-        } else {
-          alert("Código incorrecto 😢");
-        }
-      });
-    });
-
-    // Código JS para corazones animados de fondo
-    const canvas = document.getElementById("corazones");
-    const ctx = canvas.getContext("2d");
-
-    function ajustarCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    ajustarCanvas();
-    window.addEventListener('resize', ajustarCanvas);
-
-    let corazones = [];
-
-    function crearCorazon() {
-      corazones.push({
-        x: Math.random() * canvas.width,
-        y: 0,
-        size: Math.random() * 20 + 10,
-        speed: Math.random() * 2 + 1
-      });
-    }
-
-    function dibujarCorazones() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#ff4d6d";
-      corazones.forEach((c, i) => {
-        ctx.font = `${c.size}px serif`;
-        ctx.fillText("❤", c.x, c.y);
-        c.y += c.speed;
-        if (c.y > canvas.height) corazones.splice(i, 1);
-      });
-    }
-
-    function animar() {
-      dibujarCorazones();
-      requestAnimationFrame(animar);
-    }
-
-    setInterval(crearCorazon, 300);
-    animar();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
