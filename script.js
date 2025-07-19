@@ -1,4 +1,4 @@
- document.querySelectorAll(".box button").forEach(button => {
+document.querySelectorAll(".box button").forEach(button => {
   button.addEventListener("click", () => {
     const box = button.parentElement;
     const correctCode = box.getAttribute("data-code").toLowerCase();
