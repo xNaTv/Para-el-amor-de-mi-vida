@@ -8,7 +8,99 @@
   <!-- Fuente cursiva -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Dancing Script', cursive;
+      background: #ffeef2;
+      padding: 2rem;
+      margin: 0;
+      overflow-x: hidden;
+      text-align: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    h1 {
+      color: #d6336c;
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 250px);
+      grid-auto-rows: auto;
+      gap: 1.5rem;
+      justify-content: center;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .box {
+      background: white;
+      border: 2px solid #d6336c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ffd6e0;
+      padding: 1rem;
+      width: 250px;
+      transition: transform 0.3s, background-color 0.3s;
+      box-sizing: border-box;
+    }
+
+    .box:hover {
+      transform: scale(1.1);
+      background-color: #ff8fab;
+    }
+
+    .title {
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #d6336c;
+      font-size: 1.3rem;
+    }
+
+    .box-link {
+      color: #d6336c;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    .box-link:hover {
+      color: #ff6699;
+      text-shadow: 0 0 5px #ff6699;
+    }
+
+    button {
+      background-color: #d6336c;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #a0204c;
+    }
+
+    #corazones {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
 </head>
 <body>
   <h1>🎁 De tu novio tóxico 😢 💖</h1>
@@ -38,8 +130,68 @@
 
   <canvas id="corazones"></canvas>
 
-  <script src="script.js"></script>
-  <script src="corazones.js"></script>
+  <script>
+    // Código JS para desbloqueo
+    document.querySelectorAll(".box button").forEach(button => {
+      button.addEventListener("click", () => {
+        const box = button.parentElement;
+        const correctCode = box.getAttribute("data-code").toLowerCase();
+        const content = box.getAttribute("data-content");
+
+        const userCode = prompt("Ingresá el código secreto:").toLowerCase();
+
+        if (userCode === correctCode) {
+          let audio = new Audio('https://www.myinstants.com/media/sounds/success-fanfare-trumpets.mp3');
+          audio.play();
+
+          box.innerHTML = `<div class="desbloqueada"><span class="title">🎁 Desbloqueada</span><p>${content}</p></div>`;
+        } else {
+          alert("Código incorrecto 😢");
+        }
+      });
+    });
+
+    // Código JS para corazones animados de fondo
+    const canvas = document.getElementById("corazones");
+    const ctx = canvas.getContext("2d");
+
+    function ajustarCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    ajustarCanvas();
+    window.addEventListener('resize', ajustarCanvas);
+
+    let corazones = [];
+
+    function crearCorazon() {
+      corazones.push({
+        x: Math.random() * canvas.width,
+        y: 0,
+        size: Math.random() * 20 + 10,
+        speed: Math.random() * 2 + 1
+      });
+    }
+
+    function dibujarCorazones() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ff4d6d";
+      corazones.forEach((c, i) => {
+        ctx.font = `${c.size}px serif`;
+        ctx.fillText("❤", c.x, c.y);
+        c.y += c.speed;
+        if (c.y > canvas.height) corazones.splice(i, 1);
+      });
+    }
+
+    function animar() {
+      dibujarCorazones();
+      requestAnimationFrame(animar);
+    }
+
+    setInterval(crearCorazon, 300);
+    animar();
+  </script>
 </body>
 </html>
-
