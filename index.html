@@ -69,7 +69,7 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "#ff4d6d";
       corazones.forEach((c, i) => {
-        ctx.font = ${c.size}px serif;
+        ctx.font = `${c.size}px serif`;
         ctx.fillText("❤", c.x, c.y);
         c.y += c.speed;
         if (c.y > canvas.height) corazones.splice(i, 1);
