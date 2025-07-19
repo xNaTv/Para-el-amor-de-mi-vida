@@ -1,38 +1,193 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mis Cajas Secretas</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Mis Cajas</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cursive', sans-serif;
+      background: black;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 3em;
+      color: pink;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .box {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid pink;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .box h2 {
+      margin: 0 0 10px;
+      font-size: 1.5em;
+    }
+
+    .box h2 a {
+      color: pink;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .box h2 a:hover {
+      filter: brightness(1.4);
+      text-shadow: 0 0 5px pink;
+    }
+
+    .box button {
+      padding: 10px 20px;
+      border: none;
+      background: pink;
+      color: black;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .box button:hover {
+      background: hotpink;
+      transform: scale(1.05);
+    }
+
+    .desbloqueada {
+      font-size: 1.1em;
+      color: white;
+    }
+
+    .title {
+      font-size: 1.3em;
+      color: pink;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .heart {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: fall 10s linear infinite;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -7.5px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
+  <h1>🎁 Mis Cajas</h1>
+
   <div class="container">
-    <div class="box" data-code="1234" data-content="Te amo mucho ❤️">
-      <a href="https://xnatv.github.io/Caja-1/" class="title-link">Caja 1</a>
+    <div class="box" data-code="amor1" data-content="Contenido de la Caja 1">
+      <h2><a href="https://xnatv.github.io/Caja-1/" target="_blank">Caja 1</a></h2>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="2345" data-content="Sos lo mejor que me pasó 💖">
-      <a href="https://xnatv.github.io/caja-2/" class="title-link">Caja 2</a>
+
+    <div class="box" data-code="amor2" data-content="Contenido de la Caja 2">
+      <h2><a href="https://xnatv.github.io/caja-2/" target="_blank">Caja 2</a></h2>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="3456" data-content="Gracias por existir 🌟">
-      <span class="title">Caja 3</span>
+
+    <div class="box" data-code="amor3" data-content="Contenido de la Caja 3">
+      <h2><a href="#" target="_blank">Caja 3</a></h2>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="4567" data-content="Tu sonrisa ilumina todo ✨">
-      <span class="title">Caja 4</span>
+
+    <div class="box" data-code="amor4" data-content="Contenido de la Caja 4">
+      <h2><a href="#" target="_blank">Caja 4</a></h2>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="5678" data-content="Nunca ame tanto a alguien como a ti 💘">
-      <span class="title">Caja 5</span>
+
+    <div class="box" data-code="amor5" data-content="Contenido de la Caja 5">
+      <h2><a href="#" target="_blank">Caja 5</a></h2>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="6789" data-content="Sos mi persona favorita 💞">
-      <span class="title">Caja 6</span>
+
+    <div class="box" data-code="amor6" data-content="Contenido de la Caja 6">
+      <h2><a href="#" target="_blank">Caja 6</a></h2>
       <button>Desbloquear</button>
     </div>
   </div>
-  <script src="script.js"></script>
+
+  <script>
+    document.querySelectorAll(".box button").forEach(button => {
+      button.addEventListener("click", () => {
+        const box = button.parentElement;
+        const correctCode = box.getAttribute("data-code").toLowerCase();
+        const content = box.getAttribute("data-content");
+        const userCode = prompt("Ingresá el código secreto:").toLowerCase();
+
+        if (userCode === correctCode) {
+          let audio = new Audio('https://www.myinstants.com/media/sounds/success-fanfare-trumpets.mp3');
+          audio.play();
+          box.innerHTML = `<div class="desbloqueada"><span class="title">🎁 Desbloqueada</span><p>${content}</p></div>`;
+        } else {
+          alert("Código incorrecto 😢");
+        }
+      });
+    });
+
+    function crearCorazones() {
+      for (let i = 0; i < 40; i++) {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+        document.body.appendChild(heart);
+      }
+    }
+
+    crearCorazones();
+  </script>
 </body>
 </html>
