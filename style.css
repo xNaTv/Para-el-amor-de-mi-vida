@@ -13,11 +13,11 @@ h1 {
 
 .grid {
   display: grid;
-  justify-content: center;       /* ✅ centra el grid horizontalmente */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  max-width: 900px;              /* ✅ evita que se estire a lo ancho */
-  margin: 0 auto;                /* ✅ centra en pantalla */
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+  justify-items: center;                /* centra cada caja */
   gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
 }
@@ -29,6 +29,8 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 0 10px #ffd6e0;
   transition: transform 0.3s, background-color 0.3s;
+  width: 100%;
+  max-width: 250px;
 }
 
 .box:hover {
@@ -40,8 +42,15 @@ h1 {
   display: block;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #d6336c;
   font-size: 1.3rem;
+  color: #d6336c;
+  text-decoration: none;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.title:hover {
+  color: #a0204c;
+  text-shadow: 0 0 5px #ffd6e0;
 }
 
 button {
