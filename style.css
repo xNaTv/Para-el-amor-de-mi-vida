@@ -1,91 +1,66 @@
 body {
-  font-family: 'Dancing Script', cursive;
-  background: #ffeef2;
-  padding: 2rem;
   margin: 0;
-  overflow-x: hidden;
-  text-align: center;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffe6f0;
+  background-image: url('https://i.ibb.co/jkMzR5F/corazones.gif');
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  position: relative;
 }
 
-h1 {
-  color: #d6336c;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-  position: relative;
-  z-index: 10;
-}
-
-.grid {
+.container {
   display: grid;
-  grid-template-columns: repeat(3, 250px);
-  grid-auto-rows: auto;
-  gap: 1.5rem;
-  justify-content: center; /* centra la grilla en la pantalla */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 10;
+  gap: 20px;
+  padding: 20px;
 }
 
 .box {
-  background: white;
-  border: 2px solid #d6336c;
+  background-color: white;
+  border: 2px solid #ffb6c1;
   border-radius: 10px;
-  box-shadow: 0 0 10px #ffd6e0;
-  padding: 1rem;
-  width: 250px;
-  transition: transform 0.3s, background-color 0.3s;
-  box-sizing: border-box;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.box:hover {
-  transform: scale(1.1);
-  background-color: #ff8fab;
-}
-
-.title {
+.title,
+.title-link {
+  display: block;
+  font-size: 1.4em;
   font-weight: bold;
-  margin-bottom: 1rem;
-  color: #d6336c;
-  font-size: 1.3rem;
-}
-
-.box-link {
-  color: #d6336c;
+  margin-bottom: 10px;
+  color: #ff4081;
   text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s, text-shadow 0.3s;
+  font-style: italic;
 }
 
-.box-link:hover {
-  color: #ff6699;
-  text-shadow: 0 0 5px #ff6699;
+.title-link:hover {
+  color: #d81b60;
+  text-shadow: 0 0 5px pink;
 }
 
 button {
-  background-color: #d6336c;
+  background-color: #ff4081;
   border: none;
-  border-radius: 6px;
+  padding: 10px 15px;
   color: white;
+  border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s;
+  font-style: italic;
 }
 
 button:hover {
-  background-color: #a0204c;
+  background-color: #e91e63;
 }
 
-#corazones {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 1;
+.desbloqueada {
+  font-style: italic;
+  color: #4a148c;
 }
