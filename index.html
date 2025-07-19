@@ -1,193 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Mis Cajas</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para la mujer más perfecta 💝</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Cursive', sans-serif;
-      background: black;
-      color: white;
+      box-sizing: border-box;
+      font-style: italic;
+    }
+
+    body {
+      background-color: #ffd6e8;
+      font-family: 'Segoe UI', sans-serif;
       overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
     }
 
     h1 {
       text-align: center;
-      margin-top: 30px;
-      font-size: 3em;
-      color: pink;
+      color: #d63384;
+      font-size: 2em;
+      margin: 1em 0;
     }
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
+      padding: 2em;
       max-width: 1000px;
-      margin: 50px auto;
-      padding: 0 20px;
+      margin: auto;
     }
 
     .box {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 2px solid pink;
+      background-color: white;
       border-radius: 15px;
-      padding: 20px;
+      padding: 1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       text-align: center;
       position: relative;
     }
 
     .box h2 {
-      margin: 0 0 10px;
-      font-size: 1.5em;
+      margin-bottom: 0.5em;
+      transition: all 0.3s ease;
     }
 
     .box h2 a {
-      color: pink;
       text-decoration: none;
-      transition: 0.3s;
+      color: #d63384;
     }
 
     .box h2 a:hover {
-      filter: brightness(1.4);
-      text-shadow: 0 0 5px pink;
+      color: #ff69b4;
+      filter: brightness(1.2);
+    }
+
+    .box img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 0.5em;
     }
 
     .box button {
-      padding: 10px 20px;
+      padding: 0.5em 1em;
+      background-color: #d63384;
+      color: white;
       border: none;
-      background: pink;
-      color: black;
-      font-weight: bold;
       border-radius: 10px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
 
     .box button:hover {
-      background: hotpink;
-      transform: scale(1.05);
+      background-color: #e85ea2;
     }
 
-    .desbloqueada {
-      font-size: 1.1em;
-      color: white;
-    }
-
-    .title {
-      font-size: 1.3em;
-      color: pink;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .heart {
+    /* Corazones animados */
+    .hearts {
       position: fixed;
-      width: 15px;
-      height: 15px;
-      background: pink;
-      transform: rotate(45deg);
-      animation: fall 10s linear infinite;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
       z-index: 0;
     }
 
-    .heart::before,
-    .heart::after {
-      content: "";
+    .heart {
       position: absolute;
-      width: 15px;
-      height: 15px;
-      background: pink;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -7.5px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -7.5px;
-      top: 0;
+      color: #ff69b4;
+      animation: fall linear infinite;
     }
 
     @keyframes fall {
-      0% {
-        top: -10%;
-        opacity: 1;
-      }
-      100% {
-        top: 110%;
+      to {
+        transform: translateY(100vh) rotate(360deg);
         opacity: 0;
       }
     }
   </style>
 </head>
 <body>
-  <h1>🎁 Mis Cajas</h1>
+  <h1>Para la mujer más perfecta 💝</h1>
 
   <div class="container">
-    <div class="box" data-code="amor1" data-content="Contenido de la Caja 1">
+    <div class="box">
       <h2><a href="https://xnatv.github.io/Caja-1/" target="_blank">Caja 1</a></h2>
-      <button>Desbloquear</button>
+      <img src="https://cdn-icons-png.flaticon.com/512/2460/2460475.png" alt="icono caja">
+      <p>Texto de la caja 1</p>
+      <button onclick="alert('Caja 1 desbloqueada')">Desbloquear</button>
     </div>
-
-    <div class="box" data-code="amor2" data-content="Contenido de la Caja 2">
+    <div class="box">
       <h2><a href="https://xnatv.github.io/caja-2/" target="_blank">Caja 2</a></h2>
-      <button>Desbloquear</button>
+      <img src="https://cdn-icons-png.flaticon.com/512/2460/2460475.png" alt="icono caja">
+      <p>Texto de la caja 2</p>
+      <button onclick="alert('Caja 2 desbloqueada')">Desbloquear</button>
     </div>
-
-    <div class="box" data-code="amor3" data-content="Contenido de la Caja 3">
-      <h2><a href="#" target="_blank">Caja 3</a></h2>
-      <button>Desbloquear</button>
+    <div class="box">
+      <h2><a href="#">Caja 3</a></h2>
+      <img src="https://cdn-icons-png.flaticon.com/512/2460/2460475.png" alt="icono caja">
+      <p>Texto de la caja 3</p>
+      <button onclick="alert('Caja 3 desbloqueada')">Desbloquear</button>
     </div>
-
-    <div class="box" data-code="amor4" data-content="Contenido de la Caja 4">
-      <h2><a href="#" target="_blank">Caja 4</a></h2>
-      <button>Desbloquear</button>
+    <div class="box">
+      <h2><a href="#">Caja 4</a></h2>
+      <img src="https://cdn-icons-png.flaticon.com/512/2460/2460475.png" alt="icono caja">
+      <p>Texto de la caja 4</p>
+      <button onclick="alert('Caja 4 desbloqueada')">Desbloquear</button>
     </div>
-
-    <div class="box" data-code="amor5" data-content="Contenido de la Caja 5">
-      <h2><a href="#" target="_blank">Caja 5</a></h2>
-      <button>Desbloquear</button>
+    <div class="box">
+      <h2><a href="#">Caja 5</a></h2>
+      <img src="https://cdn-icons-png.flaticon.com/512/2460/2460475.png" alt="icono caja">
+      <p>Texto de la caja 5</p>
+      <button onclick="alert('Caja 5 desbloqueada')">Desbloquear</button>
     </div>
-
-    <div class="box" data-code="amor6" data-content="Contenido de la Caja 6">
-      <h2><a href="#" target="_blank">Caja 6</a></h2>
-      <button>Desbloquear</button>
+    <div class="box">
+      <h2><a href="#">Caja 6</a></h2>
+      <img src="https://cdn-icons-png.flaticon.com/512/2460/2460475.png" alt="icono caja">
+      <p>Texto de la caja 6</p>
+      <button onclick="alert('Caja 6 desbloqueada')">Desbloquear</button>
     </div>
   </div>
 
+  <div class="hearts"></div>
+
   <script>
-    document.querySelectorAll(".box button").forEach(button => {
-      button.addEventListener("click", () => {
-        const box = button.parentElement;
-        const correctCode = box.getAttribute("data-code").toLowerCase();
-        const content = box.getAttribute("data-content");
-        const userCode = prompt("Ingresá el código secreto:").toLowerCase();
+    // Crea corazones animados
+    const heartsContainer = document.querySelector('.hearts');
 
-        if (userCode === correctCode) {
-          let audio = new Audio('https://www.myinstants.com/media/sounds/success-fanfare-trumpets.mp3');
-          audio.play();
-          box.innerHTML = `<div class="desbloqueada"><span class="title">🎁 Desbloqueada</span><p>${content}</p></div>`;
-        } else {
-          alert("Código incorrecto 😢");
-        }
-      });
-    });
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💗';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      heartsContainer.appendChild(heart);
 
-    function crearCorazones() {
-      for (let i = 0; i < 40; i++) {
-        let heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = 5 + Math.random() * 5 + "s";
-        document.body.appendChild(heart);
-      }
+      setTimeout(() => heart.remove(), 5000);
     }
 
-    crearCorazones();
+    setInterval(createHeart, 300);
   </script>
 </body>
 </html>
