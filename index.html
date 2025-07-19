@@ -2,145 +2,185 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para la mujer más perfecta 💝</title>
+  <title>Regalos para Ti</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: pink;
+      background: #000;
       font-family: 'Comic Sans MS', cursive;
-      font-style: italic;
       overflow-x: hidden;
+      color: white;
+    }
+
+    .corazones {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .corazones span {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://emojicdn.elk.sh/💖') no-repeat center center/contain;
+      animation: caer 10s linear infinite;
+    }
+
+    @keyframes caer {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
     }
 
     h1 {
       text-align: center;
-      margin: 30px 0 20px;
-      font-size: 2.5em;
+      font-size: 2.5rem;
+      margin-top: 30px;
+      color: pink;
+      text-shadow: 0 0 10px pink;
     }
 
-    .container {
+    .contenedor {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      max-width: 1200px;
-      margin: 0 auto;
+      max-width: 900px;
+      margin: auto;
+      gap: 20px;
+      margin-bottom: 50px;
     }
 
     .box {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 192, 203, 0.1);
+      border: 2px solid pink;
       border-radius: 20px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       padding: 20px;
-      margin: 20px;
-      width: 300px;
+      width: 250px;
       text-align: center;
+      box-shadow: 0 0 15px pink;
       position: relative;
+    }
+
+    .box h2 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
     }
 
     .box h2 a {
       text-decoration: none;
-      color: #d63384;
+      color: pink;
       transition: 0.3s;
     }
 
     .box h2 a:hover {
-      color: #ff69b4;
+      filter: brightness(150%);
       text-shadow: 0 0 5px white;
     }
 
-    .box img {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 15px;
+    .box p {
+      margin-bottom: 10px;
     }
 
-    button {
-      background: #ff69b4;
-      color: white;
-      border: none;
+    .box button {
       padding: 10px 20px;
-      margin-top: 15px;
+      background-color: pink;
+      border: none;
       border-radius: 10px;
       cursor: pointer;
+      font-weight: bold;
+      color: black;
+      box-shadow: 0 0 10px white;
+    }
+
+    .desbloqueada {
       font-style: italic;
     }
 
-    button:hover {
-      background: #ff85c1;
-    }
-
-    /* Corazones animados */
-    .heart {
-      position: fixed;
-      top: -10px;
-      color: #ff69b4;
-      animation: fall 5s linear infinite;
-      font-size: 20px;
-      z-index: 0;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-      }
+    .desbloqueada .title {
+      font-size: 1.5rem;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <h1>Para la mujer más perfecta 💝</h1>
-  <div class="container">
-    <div class="box">
+  <h1>🎁 Regalos para Ti</h1>
+
+  <div class="contenedor">
+    <div class="box" data-code="1234" data-content="Te ganaste un abrazo virtual">
       <h2><a href="https://xnatv.github.io/Caja-1/" target="_blank">Caja 1</a></h2>
-      <img src="https://cdn-icons-png.flaticon.com/512/4202/4202849.png" alt="Caja">
-      <p>Esta es la primera sorpresa para ti, mi amor.</p>
-      <button onclick="alert('Caja 1 desbloqueada')">Desbloquear</button>
+      <p>Descubre tu regalo</p>
+      <button>Desbloquear</button>
     </div>
-    <div class="box">
+    <div class="box" data-code="abcd" data-content="Una carta de amor te espera ❤️">
       <h2><a href="https://xnatv.github.io/caja-2/" target="_blank">Caja 2</a></h2>
-      <img src="https://cdn-icons-png.flaticon.com/512/4202/4202849.png" alt="Caja">
-      <p>Un regalito más para la mujer más linda.</p>
-      <button onclick="alert('Caja 2 desbloqueada')">Desbloquear</button>
+      <p>Descubre tu regalo</p>
+      <button>Desbloquear</button>
     </div>
-    <div class="box">
+    <div class="box" data-code="5678" data-content="Un dibujo hecho con cariño ✏️">
       <h2><a href="#">Caja 3</a></h2>
-      <img src="https://cdn-icons-png.flaticon.com/512/4202/4202849.png" alt="Caja">
-      <p>Este detalle viene con mucho amor.</p>
-      <button onclick="alert('Caja 3 desbloqueada')">Desbloquear</button>
+      <p>Descubre tu regalo</p>
+      <button>Desbloquear</button>
     </div>
-    <div class="box">
+    <div class="box" data-code="amor" data-content="Una canción especial para ti 🎵">
       <h2><a href="#">Caja 4</a></h2>
-      <img src="https://cdn-icons-png.flaticon.com/512/4202/4202849.png" alt="Caja">
-      <p>Sorpresas como tú, únicas e inolvidables.</p>
-      <button onclick="alert('Caja 4 desbloqueada')">Desbloquear</button>
+      <p>Descubre tu regalo</p>
+      <button>Desbloquear</button>
     </div>
-    <div class="box">
+    <div class="box" data-code="feliz" data-content="Un recuerdo inolvidable 📸">
       <h2><a href="#">Caja 5</a></h2>
-      <img src="https://cdn-icons-png.flaticon.com/512/4202/4202849.png" alt="Caja">
-      <p>Gracias por existir, te amo infinito.</p>
-      <button onclick="alert('Caja 5 desbloqueada')">Desbloquear</button>
+      <p>Descubre tu regalo</p>
+      <button>Desbloquear</button>
     </div>
-    <div class="box">
+    <div class="box" data-code="sorpresa" data-content="Una sorpresa muy dulce 🍬">
       <h2><a href="#">Caja 6</a></h2>
-      <img src="https://cdn-icons-png.flaticon.com/512/4202/4202849.png" alt="Caja">
-      <p>Una última sorpresa, pero no menos especial.</p>
-      <button onclick="alert('Caja 6 desbloqueada')">Desbloquear</button>
+      <p>Descubre tu regalo</p>
+      <button>Desbloquear</button>
     </div>
   </div>
 
-  <!-- Generador de corazones -->
-  <script>
-    const numHearts = 30;
+  <div class="corazones" id="corazones"></div>
 
-    for (let i = 0; i < numHearts; i++) {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = `${Math.random() * 100}vw`;
-      heart.style.animationDuration = `${3 + Math.random() * 2}s`;
-      heart.textContent = '💖';
-      document.body.appendChild(heart);
+  <script>
+    // Animación de corazones
+    function crearCorazones() {
+      const container = document.getElementById('corazones');
+      for (let i = 0; i < 30; i++) {
+        const span = document.createElement('span');
+        span.style.left = Math.random() * 100 + 'vw';
+        span.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(span);
+      }
     }
+
+    crearCorazones();
+
+    // Código de desbloqueo
+    document.querySelectorAll(".box button").forEach(button => {
+      button.addEventListener("click", () => {
+        const box = button.parentElement;
+        const correctCode = box.getAttribute("data-code").toLowerCase();
+        const content = box.getAttribute("data-content");
+        const userCode = prompt("Ingresá el código secreto:")?.toLowerCase();
+
+        if (userCode === correctCode) {
+          let audio = new Audio('https://www.myinstants.com/media/sounds/success-fanfare-trumpets.mp3');
+          audio.play();
+          box.innerHTML = `<div class="desbloqueada"><span class="title">🎁 Desbloqueada</span><p>${content}</p></div>`;
+        } else {
+          alert("Código incorrecto 😢");
+        }
+      });
+    });
   </script>
 </body>
 </html>
