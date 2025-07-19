@@ -11,7 +11,7 @@ document.querySelectorAll(".box button").forEach(button => {
     audio.play();
 
     if (userCode === correctCode) {
-      box.innerHTML = <div class="desbloqueada"><span class="title">🎁 Desbloqueada</span><p>${content}</p></div>;
+      box.innerHTML = `<div class="desbloqueada"><span class="title">🎁 Desbloqueada</span><p>${content}</p></div>`;
     } else {
       alert("Código incorrecto 😢");
     }
