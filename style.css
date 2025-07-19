@@ -1,12 +1,12 @@
 body {
   font-family: 'Dancing Script', cursive;
-  text-align: center;
   background: #ffeef2;
   padding: 2rem;
-  position: relative;
-  min-height: 100vh;
-  overflow-x: hidden;
   margin: 0;
+  overflow-x: hidden;
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
 }
 
 h1 {
@@ -14,28 +14,30 @@ h1 {
   margin-bottom: 2rem;
   font-size: 2.5rem;
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 250px);
+  grid-auto-rows: auto;
   gap: 1.5rem;
-  justify-content: center; /* Centra las columnas en el contenedor */
+  justify-content: center; /* centra la grilla en la pantalla */
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
 .box {
   background: white;
-  padding: 1rem;
   border: 2px solid #d6336c;
   border-radius: 10px;
   box-shadow: 0 0 10px #ffd6e0;
+  padding: 1rem;
   width: 250px;
   transition: transform 0.3s, background-color 0.3s;
+  box-sizing: border-box;
 }
 
 .box:hover {
@@ -44,20 +46,17 @@ h1 {
 }
 
 .title {
-  display: block;
   font-weight: bold;
   margin-bottom: 1rem;
   color: #d6336c;
   font-size: 1.3rem;
-  position: relative;
-  z-index: 2;
 }
 
 .box-link {
   color: #d6336c;
   text-decoration: none;
-  transition: color 0.3s, text-shadow 0.3s;
   cursor: pointer;
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
 .box-link:hover {
@@ -67,15 +66,14 @@ h1 {
 
 button {
   background-color: #d6336c;
-  color: white;
   border: none;
-  padding: 0.5rem 1rem;
   border-radius: 6px;
+  color: white;
   cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
-  position: relative;
-  z-index: 2;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
 }
 
 button:hover {
@@ -86,9 +84,8 @@ button:hover {
   position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none;
-  z-index: 1;
   width: 100vw;
   height: 100vh;
-  display: block;
+  pointer-events: none;
+  z-index: 1;
 }
