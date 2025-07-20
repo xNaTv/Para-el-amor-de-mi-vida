@@ -1,92 +1,197 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Regalo para mi novia</title>
+  <meta charset="UTF-8">
+  <title>Para la mujer más perfecta 💝</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Dancing Script', cursive;
+      background: #ffeef2; /* Rosa pastel */
+      color: white;
+      overflow-x: hidden;
+      font-style: italic; /* Cursiva en todo */
+    }
 
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 3em;
+      color: #d6336c;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .box {
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid #d6336c;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 10px #ffd6e0;
+    }
+
+    .box h2 {
+      margin: 0 0 10px;
+      font-size: 1.5em;
+    }
+
+    .box h2 a {
+      color: #d6336c;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .box h2 a:hover {
+      filter: brightness(1.4);
+      text-shadow: 0 0 5px #d6336c;
+    }
+
+    .box button {
+      padding: 10px 20px;
+      border: none;
+      background: #d6336c;
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .box button:hover {
+      background: #a0204c;
+      transform: scale(1.05);
+    }
+
+    .desbloqueada {
+      font-size: 1.1em;
+      color: white;
+    }
+
+    .title {
+      font-size: 1.3em;
+      color: #d6336c;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .heart {
+      position: fixed;
+      width: 15px;
+      height: 15px;
+      background: #ff4d6d;
+      transform: rotate(45deg);
+      animation: fall 10s linear infinite;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: #ff4d6d;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -7.5px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -7.5px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10%;
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        opacity: 0;
+      }
+    }
+  </style>
   <!-- Fuente cursiva -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-  
-  <!-- CSS externo -->
-  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🎁 De tu novio tóxico 😢 💖</h1>
+  <h1>🎁 Para la mujer más perfecta 💝</h1>
 
-  <div class="grid">
-    <div class="box" data-code="te amo" data-content="Te amo mucho, amor. Esta es tu primera sorpresa. 💌">
-      <span class="title">💝 Caja 1</span>
+  <div class="container">
+    <div class="box" data-code="amor1" data-content="Contenido de la Caja 1">
+      <h2><a href="https://xnatv.github.io/Caja-1/" target="_blank">💝 Caja 1</a></h2>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="gracias por aparecer en mi vida" data-content="Tu presencia cambió mi vida. Gracias por estar. 🌟">
-      <span class="title">💝 Caja 2</span>
+
+    <div class="box" data-code="amor2" data-content="Contenido de la Caja 2">
+      <h2><a href="https://xnatv.github.io/caja-2/" target="_blank">💝 Caja 2</a></h2>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="eres lo mas lindo que tengo" data-content="Sos lo mejor que me pasó. ❤️">
-      <span class="title">💝 Caja 3</span>
+
+    <div class="box" data-code="amor3" data-content="Contenido de la Caja 3">
+      <h2><a href="#" target="_blank">💝 Caja 3</a></h2>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="siempre seras tu y nadie mas" data-content="Siempre serás mi elección. 💘">
-      <span class="title">💝 Caja 4</span>
+
+    <div class="box" data-code="amor4" data-content="Contenido de la Caja 4">
+      <h2><a href="#" target="_blank">💝 Caja 4</a></h2>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="se que soy celoso pero este celoso te ama" data-content="Este celoso te ama demasiado 😳💕">
-      <span class="title">💝 Caja 5</span>
+
+    <div class="box" data-code="amor5" data-content="Contenido de la Caja 5">
+      <h2><a href="#" target="_blank">💝 Caja 5</a></h2>
       <button>Desbloquear</button>
     </div>
-    <div class="box" data-code="espero que te guste mi refalo" data-content="Esto lo hice con mucho amor para vos. 🎨">
-      <span class="title">💝 Caja 6</span>
+
+    <div class="box" data-code="amor6" data-content="Contenido de la Caja 6">
+      <h2><a href="#" target="_blank">💝 Caja 6</a></h2>
       <button>Desbloquear</button>
     </div>
   </div>
 
-  <!-- Canvas de corazones -->
-  <canvas id="corazones"></canvas>
-
-  <!-- JS -->
-  <script src="main.js"></script>
-
-  <!-- Corazones animados -->
   <script>
-    const canvas = document.getElementById("corazones");
-    const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    document.querySelectorAll(".box button").forEach(button => {
+      button.addEventListener("click", () => {
+        const box = button.parentElement;
+        const correctCode = box.getAttribute("data-code").toLowerCase();
+        const content = box.getAttribute("data-content");
+        const userCode = prompt("Ingresá el código secreto:").toLowerCase();
 
-    let corazones = [];
-
-    function crearCorazon() {
-      corazones.push({
-        x: Math.random() * canvas.width,
-        y: 0,
-        size: Math.random() * 20 + 10,
-        speed: Math.random() * 2 + 1
+        if (userCode === correctCode) {
+          let audio = new Audio('https://www.myinstants.com/media/sounds/success-fanfare-trumpets.mp3');
+          audio.play();
+          box.innerHTML = <div class="desbloqueada"><span class="title">🎁 Desbloqueada</span><p>${content}</p></div>;
+        } else {
+          alert("Código incorrecto 😢");
+        }
       });
-    }
-
-    function dibujarCorazones() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#ff4d6d";
-      corazones.forEach((c, i) => {
-        ctx.font = `${c.size}px serif`;
-        ctx.fillText("❤", c.x, c.y);
-        c.y += c.speed;
-        if (c.y > canvas.height) corazones.splice(i, 1);
-      });
-    }
-
-    function animar() {
-      dibujarCorazones();
-      requestAnimationFrame(animar);
-    }
-
-    setInterval(crearCorazon, 300);
-    animar();
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
     });
+
+    function crearCorazones() {
+      for (let i = 0; i < 40; i++) {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+        document.body.appendChild(heart);
+      }
+    }
+
+    crearCorazones();
   </script>
 </body>
-</html>	
+</html>
