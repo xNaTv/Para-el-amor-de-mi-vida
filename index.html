@@ -12,6 +12,8 @@
       color: white;
       overflow-x: hidden;
       font-style: italic; /* Cursiva en todo */
+      overflow: hidden;
+      height: 100vh;
     }
 
     h1 {
@@ -28,6 +30,8 @@
       max-width: 1000px;
       margin: 50px auto;
       padding: 0 20px;
+      position: relative;
+      z-index: 2;
     }
 
     .box {
@@ -174,7 +178,7 @@
         if (userCode === correctCode) {
           let audio = new Audio('https://www.myinstants.com/media/sounds/success-fanfare-trumpets.mp3');
           audio.play();
-          box.innerHTML = <div class="desbloqueada"><span class="title">🎁 Desbloqueada</span><p>${content}</p></div>;
+          box.innerHTML = '<div class="desbloqueada"><span class="title">🎁 Desbloqueada</span><p>' + content + '</p></div>';
         } else {
           alert("Código incorrecto 😢");
         }
