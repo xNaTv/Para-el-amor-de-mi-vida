@@ -2,157 +2,91 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Caja 1 💝</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Dancing Script', cursive;
-      background-color: #ffeef2;
-      overflow: hidden;
-      height: 100vh;
-      font-style: italic;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Regalo para mi novia</title>
 
-    h1, p, input, button {
-      font-style: italic;
-    }
-
-    .titulo {
-      text-align: center;
-      font-size: 3em;
-      margin-top: 20px;
-      color: #d63384;
-      z-index: 2;
-      position: relative;
-    }
-
-    .pregunta-box {
-      background: white;
-      border-radius: 20px;
-      padding: 20px;
-      width: 80%;
-      max-width: 500px;
-      margin: 50px auto;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      z-index: 2;
-      position: relative;
-    }
-
-    .pregunta {
-      font-size: 1.2em;
-      margin-bottom: 15px;
-      color: #d6336c;
-    }
-
-    input {
-      padding: 10px;
-      width: 80%;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-      font-family: inherit;
-    }
-
-    button {
-      padding: 10px 20px;
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 15px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-family: inherit;
-    }
-
-    button:hover {
-      background-color: #d63384;
-    }
-
-    .mensaje {
-      margin-top: 15px;
-      font-size: 1.2em;
-    }
-
-    .heart {
-      position: fixed;
-      width: 15px;
-      height: 15px;
-      background: #ff4d6d;
-      transform: rotate(45deg);
-      animation: fall 10s linear infinite;
-      z-index: 0;
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      background: #ff4d6d;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -7.5px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -7.5px;
-      top: 0;
-    }
-
-    @keyframes fall {
-      0% {
-        top: -10%;
-        opacity: 1;
-      }
-      100% {
-        top: 110%;
-        opacity: 0;
-      }
-    }
-  </style>
+  <!-- Fuente cursiva -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1 class="titulo">Caja 1 💝</h1>
+  <h1>🎁 De tu novio tóxico 😢 💖</h1>
 
-  <div class="pregunta-box">
-    <p class="pregunta">¿Qué es lo que nunca creí que quería en mi vida pero gracias a ti no veo la hora de tenerlo...?</p>
-    <input type="text" id="respuesta" placeholder="Tu respuesta..." />
-    <button onclick="verificar()">Responder</button>
-    <p id="mensaje" class="mensaje"></p>
+  <div class="grid">
+    <div class="box" data-code="te amo" data-content="Te amo mucho, amor. Esta es tu primera sorpresa. 💌">
+      <span class="title">💝 Caja 1</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="gracias por aparecer en mi vida" data-content="Tu presencia cambió mi vida. Gracias por estar. 🌟">
+      <span class="title">💝 Caja 2</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="eres lo mas lindo que tengo" data-content="Sos lo mejor que me pasó. ❤️">
+      <span class="title">💝 Caja 3</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="siempre seras tu y nadie mas" data-content="Siempre serás mi elección. 💘">
+      <span class="title">💝 Caja 4</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="se que soy celoso pero este celoso te ama" data-content="Este celoso te ama demasiado 😳💕">
+      <span class="title">💝 Caja 5</span>
+      <button>Desbloquear</button>
+    </div>
+    <div class="box" data-code="espero que te guste mi refalo" data-content="Esto lo hice con mucho amor para vos. 🎨">
+      <span class="title">💝 Caja 6</span>
+      <button>Desbloquear</button>
+    </div>
   </div>
 
+  <!-- Canvas de corazones -->
+  <canvas id="corazones"></canvas>
+
+  <!-- JS -->
+  <script src="main.js"></script>
+
+  <!-- Corazones animados -->
   <script>
-    function verificar() {
-      const respuesta = document.getElementById("respuesta").value.trim().toLowerCase();
-      const mensaje = document.getElementById("mensaje");
+    const canvas = document.getElementById("corazones");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-      if (respuesta === "hijo" || respuesta === "hijos") {
-        mensaje.style.color = "green";
-        mensaje.textContent = "✅ ¡Respuesta correcta! Código de la caja: 'cuando'.";
-      } else {
-        mensaje.style.color = "red";
-        mensaje.textContent = "❌ Esa no es la respuesta correcta, intenta de nuevo.";
-      }
+    let corazones = [];
+
+    function crearCorazon() {
+      corazones.push({
+        x: Math.random() * canvas.width,
+        y: 0,
+        size: Math.random() * 20 + 10,
+        speed: Math.random() * 2 + 1
+      });
     }
 
-    function crearCorazones() {
-      for (let i = 0; i < 40; i++) {
-        let heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = 5 + Math.random() * 5 + "s";
-        document.body.appendChild(heart);
-      }
+    function dibujarCorazones() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ff4d6d";
+      corazones.forEach((c, i) => {
+        ctx.font = `${c.size}px serif`;
+        ctx.fillText("❤", c.x, c.y);
+        c.y += c.speed;
+        if (c.y > canvas.height) corazones.splice(i, 1);
+      });
     }
 
-    crearCorazones();
+    function animar() {
+      dibujarCorazones();
+      requestAnimationFrame(animar);
+    }
+
+    setInterval(crearCorazon, 300);
+    animar();
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
   </script>
 </body>
-</html>
+</html>	
